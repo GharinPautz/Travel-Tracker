@@ -7,23 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		255652A92550A37100CEE0FE /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255652A82550A37100CEE0FE /* Trip.swift */; };
 		25658F7B2547A44E003B00D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25658F7A2547A44E003B00D6 /* AppDelegate.swift */; };
 		25658F7D2547A44E003B00D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25658F7C2547A44E003B00D6 /* SceneDelegate.swift */; };
-		25658F7F2547A44E003B00D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25658F7E2547A44E003B00D6 /* ViewController.swift */; };
+		25658F7F2547A44E003B00D6 /* TripTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25658F7E2547A44E003B00D6 /* TripTableViewController.swift */; };
 		25658F822547A44E003B00D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25658F802547A44E003B00D6 /* Main.storyboard */; };
 		25658F842547A44F003B00D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25658F832547A44F003B00D6 /* Assets.xcassets */; };
 		25658F872547A44F003B00D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25658F852547A44F003B00D6 /* LaunchScreen.storyboard */; };
+		2576B08F25538CC4004956A7 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576B08E25538CC4004956A7 /* TripDetailViewController.swift */; };
+		2576B09125538D7D004956A7 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576B09025538D7D004956A7 /* TripTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		255652A82550A37100CEE0FE /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		25658F772547A44E003B00D6 /* CPSC315PA6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPSC315PA6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25658F7A2547A44E003B00D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25658F7C2547A44E003B00D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		25658F7E2547A44E003B00D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		25658F7E2547A44E003B00D6 /* TripTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewController.swift; sourceTree = "<group>"; };
 		25658F812547A44E003B00D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		25658F832547A44F003B00D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25658F862547A44F003B00D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25658F882547A44F003B00D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2576B08E25538CC4004956A7 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
+		2576B09025538D7D004956A7 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +64,14 @@
 			children = (
 				25658F7A2547A44E003B00D6 /* AppDelegate.swift */,
 				25658F7C2547A44E003B00D6 /* SceneDelegate.swift */,
-				25658F7E2547A44E003B00D6 /* ViewController.swift */,
+				25658F7E2547A44E003B00D6 /* TripTableViewController.swift */,
 				25658F802547A44E003B00D6 /* Main.storyboard */,
 				25658F832547A44F003B00D6 /* Assets.xcassets */,
 				25658F852547A44F003B00D6 /* LaunchScreen.storyboard */,
 				25658F882547A44F003B00D6 /* Info.plist */,
+				255652A82550A37100CEE0FE /* Trip.swift */,
+				2576B08E25538CC4004956A7 /* TripDetailViewController.swift */,
+				2576B09025538D7D004956A7 /* TripTableViewCell.swift */,
 			);
 			path = CPSC315PA6;
 			sourceTree = "<group>";
@@ -138,7 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25658F7F2547A44E003B00D6 /* ViewController.swift in Sources */,
+				2576B09125538D7D004956A7 /* TripTableViewCell.swift in Sources */,
+				2576B08F25538CC4004956A7 /* TripDetailViewController.swift in Sources */,
+				255652A92550A37100CEE0FE /* Trip.swift in Sources */,
+				25658F7F2547A44E003B00D6 /* TripTableViewController.swift in Sources */,
 				25658F7B2547A44E003B00D6 /* AppDelegate.swift in Sources */,
 				25658F7D2547A44E003B00D6 /* SceneDelegate.swift in Sources */,
 			);
