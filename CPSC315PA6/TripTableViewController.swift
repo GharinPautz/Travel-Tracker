@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TripTableViewController: UIViewController {
+class TripTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var trips = [Trip]()
     
@@ -22,6 +22,23 @@ class TripTableViewController: UIViewController {
         initializeDateFormatter()
         initializeTrips()
         print(trips)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return trips.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let trip = trips[row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TripCell", for: indexPath) as! TripTableViewCell
+        
+        cell.update(with: trip)
+        return cell
     }
     
     func initializeTrips() {

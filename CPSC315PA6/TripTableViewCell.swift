@@ -14,6 +14,8 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet var startDateLabel: UILabel!
     @IBOutlet var endDateLabel: UILabel!
     
+    let dateFormatter = DateFormatter()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,12 +27,20 @@ class TripTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-//    func update(with trip: Trip) {
-//        destionationLabel.text = trip.destinationName
-//
-//        // Figure out how to make these strings
-//        // might have to put date formatter in this class
-//        startDateLabel.text = trip.startDate
-//        endDateLabel.text = trip.endDate
-//    }
+    func update(with trip: Trip) {
+        initializeDatFormatter()
+        destionationLabel.text = trip.destinationName
+
+        // Figure out how to make these strings
+        // might have to put date formatter in this class
+        startDateLabel.text = dateFormatter.string(from: trip.startDate)
+        endDateLabel.text = dateFormatter.string(from: trip.endDate)
+    }
+    
+    func initializeDatFormatter() {
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+    }
+    
 }
