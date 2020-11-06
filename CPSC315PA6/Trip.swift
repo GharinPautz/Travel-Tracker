@@ -12,32 +12,28 @@ class Trip: CustomStringConvertible {
     var destinationName: String
     var startDate = Date()
     var endDate = Date()
+    
     //var imageFileName: String?
+    
+    let dateFormatter = DateFormatter()
+    
     var description: String {
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
         return """
             Destination: \(destinationName)
-            Start Date: \(startDate)
-            End Date: \(endDate)
+            Start Date: \(dateFormatter.string(from: startDate))
+            End Date: \(dateFormatter.string(from: endDate))
             """
     }
     
-    init(destinationName: String, startDate: String, endDate: String) {
+    init(destinationName: String, startDate: Date, endDate: Date) {
         self.destinationName = destinationName
-        self.startDate = setDate(date: startDate)
-        self.endDate = setDate(date: endDate)
+        self.startDate = startDate
+        self.endDate = endDate
         //self.imageFileName = "image"
     }
     
-    // or we can change the return value to be Date? and return nil in the else statement
-    func setDate(date: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        let todayStr = dateFormatter.string(from: startDate)
-        if let tripDate = dateFormatter.date(from: date) {
-            return tripDate
-        }
-        else {
-            return startDate
-        }
-    }
 }
