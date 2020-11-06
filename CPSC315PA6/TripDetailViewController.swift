@@ -10,10 +10,25 @@ import UIKit
 
 class TripDetailViewController: UIViewController {
 
+    var tripOptional: Trip? = nil
+    var dateFormatter = DateFormatter()
+    
+    @IBOutlet var tripCountLabel: UILabel!
+    @IBOutlet var destinationLabel: UILabel!
+    @IBOutlet var startDateLabel: UILabel!
+    @IBOutlet var endDateLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        initializeDateFormatter()
+        if let trip = tripOptional {
+            // set tripCountLabel
+            destinationLabel.text = "Destination: \(trip.destinationName)"
+            startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate))"
+            endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate))"
+        }
     }
     
 
@@ -27,4 +42,9 @@ class TripDetailViewController: UIViewController {
     }
     */
 
+    func initializeDateFormatter() {
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+    }
 }

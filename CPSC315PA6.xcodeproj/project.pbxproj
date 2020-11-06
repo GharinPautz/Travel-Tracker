@@ -16,6 +16,7 @@
 		25658F872547A44F003B00D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25658F852547A44F003B00D6 /* LaunchScreen.storyboard */; };
 		2576B08F25538CC4004956A7 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576B08E25538CC4004956A7 /* TripDetailViewController.swift */; };
 		2576B09125538D7D004956A7 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576B09025538D7D004956A7 /* TripTableViewCell.swift */; };
+		2576B09325554141004956A7 /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2576B09225554141004956A7 /* AddTripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		25658F882547A44F003B00D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2576B08E25538CC4004956A7 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		2576B09025538D7D004956A7 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
+		2576B09225554141004956A7 /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				255652A82550A37100CEE0FE /* Trip.swift */,
 				2576B08E25538CC4004956A7 /* TripDetailViewController.swift */,
 				2576B09025538D7D004956A7 /* TripTableViewCell.swift */,
+				2576B09225554141004956A7 /* AddTripViewController.swift */,
 			);
 			path = CPSC315PA6;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2576B09325554141004956A7 /* AddTripViewController.swift in Sources */,
 				2576B09125538D7D004956A7 /* TripTableViewCell.swift in Sources */,
 				2576B08F25538CC4004956A7 /* TripDetailViewController.swift in Sources */,
 				255652A92550A37100CEE0FE /* Trip.swift in Sources */,

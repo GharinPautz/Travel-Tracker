@@ -41,6 +41,19 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifer = segue.identifier {
+            if identifer == "DetailSegue" {
+                if let tripDetailVC = segue.destination as? TripDetailViewController {
+                    if let indexPath = tableView.indexPathForSelectedRow {
+                        let trip = trips[indexPath.row]
+                        tripDetailVC.tripOptional = trip
+                    }
+                }
+            }
+        }
+    }
+    
     func initializeTrips() {
         trips.append(Trip(destinationName: "Hawaii", startDate: dateFormatter.date(from: "12/23/2020")!, endDate: dateFormatter.date(from: "12/30/2020")!))
         trips.append(Trip(destinationName: "Copenhagen", startDate: dateFormatter.date(from: "08/05/2020")!, endDate: dateFormatter.date(from: "08/22/2020")!))
