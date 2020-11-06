@@ -234,6 +234,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-Xq-a9a">
                                         <rect key="frame" x="213" y="0.0" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <segue destination="Vrq-5U-Ioq" kind="unwind" unwindAction="unwindToTripTableVCWithSegue:" id="3EA-hI-RrY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -259,6 +262,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IP8-vr-uC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Vrq-5U-Ioq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1931.8840579710147" y="-209.59821428571428"/>
         </scene>

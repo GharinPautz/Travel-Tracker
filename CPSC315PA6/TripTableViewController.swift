@@ -54,6 +54,22 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    // need to add a new row in table
+    @IBAction func unwindToTripTableVC(segue: UIStoryboardSegue) {
+        if let identifier = segue.identifier {
+            if identifier == "SaveUnwindSegue" {
+                if let tripDetailVC = segue.source as? TripDetailViewController {
+                    if let trip = tripDetailVC.tripOptional {
+                        if let indexPath = tableView.indexPathForSelectedRow {
+                            trips[indexPath.row] = trip
+                            tableView.reloadData()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func initializeTrips() {
         trips.append(Trip(destinationName: "Hawaii", startDate: dateFormatter.date(from: "12/23/2020")!, endDate: dateFormatter.date(from: "12/30/2020")!))
         trips.append(Trip(destinationName: "Copenhagen", startDate: dateFormatter.date(from: "08/05/2020")!, endDate: dateFormatter.date(from: "08/22/2020")!))
