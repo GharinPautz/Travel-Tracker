@@ -21,7 +21,7 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
         initializeDateFormatter()
         initializeTrips()
-        print(trips)
+        //print(trips)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,13 +42,19 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifer = segue.identifier {
-            if identifer == "DetailSegue" {
+        if let identifier = segue.identifier {
+            if identifier == "DetailSegue" {
                 if let tripDetailVC = segue.destination as? TripDetailViewController {
                     if let indexPath = tableView.indexPathForSelectedRow {
                         let trip = trips[indexPath.row]
                         tripDetailVC.tripOptional = trip
                     }
+                }
+            }
+            else if identifier == "AddSegue" {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    // deselect the row
+                    tableView.deselectRow(at: indexPath, animated: true)
                 }
             }
         }
@@ -57,16 +63,18 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
     // need to add a new row in table
     @IBAction func unwindToTripTableVC(segue: UIStoryboardSegue) {
         if let identifier = segue.identifier {
+            // if save was pressed
             if identifier == "SaveUnwindSegue" {
-                if let tripDetailVC = segue.source as? TripDetailViewController {
-                    if let trip = tripDetailVC.tripOptional {
-                        if let indexPath = tableView.indexPathForSelectedRow {
-                            trips[indexPath.row] = trip
-                            tableView.reloadData()
-                        }
+                print("Save pressed")
+                if let addTripVC = segue.source as? AddTripViewController {
+                    if let trip = addTripVC.tripOptional {
+                        // unwinding from add segue
+                        trips.append(trip)
+                        tableView.reloadData()
                     }
                 }
             }
+            // if cancel was pressed
         }
     }
     

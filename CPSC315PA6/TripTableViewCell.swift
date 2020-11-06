@@ -28,7 +28,7 @@ class TripTableViewCell: UITableViewCell {
     }
 
     func update(with trip: Trip) {
-        initializeDatFormatter()
+        initializeDateFormatter()
         destionationLabel.text = trip.destinationName
 
         // Figure out how to make these strings
@@ -37,7 +37,7 @@ class TripTableViewCell: UITableViewCell {
         endDateLabel.text = dateFormatter.string(from: trip.endDate)
     }
     
-    func initializeDatFormatter() {
+    func initializeDateFormatter() {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MM/dd/yyyy"

@@ -18,6 +18,9 @@ class AddTripViewController: UIViewController {
     @IBOutlet var startDateTextField: UITextField!
     @IBOutlet var endDateTextField: UITextField!
     
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var saveButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,12 +38,10 @@ class AddTripViewController: UIViewController {
         
         if let identifier = segue.identifier {
             if identifier == "SaveUnwindSegue" {
+                print("In save unwind segue")
                 if let destination = destinationTextField.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
-                    if let trip = tripOptional {
-                        trip.destinationName = destination
-                        trip.startDate = dateFormatter.date(from: startDate)!
-                        trip.endDate = dateFormatter.date(from: endDate)!
-                    }
+                    
+                        tripOptional = Trip(destinationName: destination, startDate: dateFormatter.date(from: startDate)!, endDate: dateFormatter.date(from: endDate)!)
                 }
             }
         }
