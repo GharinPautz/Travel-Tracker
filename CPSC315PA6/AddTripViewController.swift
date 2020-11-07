@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTripViewController: UIViewController {
+class AddTripViewController: UIViewController, UITextFieldDelegate {
 
     var tripOptional: Trip? = nil
     var dateFormatter = DateFormatter()
@@ -44,10 +44,24 @@ class AddTripViewController: UIViewController {
                         // check that destination is not empty
                         // check that start date is valid date
                         // check that end date is valid date
-                        tripOptional = Trip(destinationName: destination, startDate: dateFormatter.date(from: startDate)!, endDate: dateFormatter.date(from: endDate)!)
+                    tripOptional = Trip(destinationName: destination, startDate: dateFormatter.date(from: startDate)!, endDate: dateFormatter.date(from: endDate)!, imageFileName: nil)
                 }
             }
         }
+    }
+    
+    @IBAction func backgroundTap(_ sender: UITapGestureRecognizer) {
+        print("background tap")
+        destinationTextField.resignFirstResponder()
+        startDateTextField.resignFirstResponder()
+        endDateTextField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        destinationTextField.resignFirstResponder()
+        startDateTextField.resignFirstResponder()
+        endDateTextField.resignFirstResponder()
+        return true
     }
     
     func initializeDateFormatter() {

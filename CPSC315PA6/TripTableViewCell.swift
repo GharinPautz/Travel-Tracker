@@ -13,6 +13,7 @@ class TripTableViewCell: UITableViewCell {
     @IBOutlet var destionationLabel: UILabel!
     @IBOutlet var startDateLabel: UILabel!
     @IBOutlet var endDateLabel: UILabel!
+    @IBOutlet var tripImageView: UIImageView!
     
     let dateFormatter = DateFormatter()
     
@@ -35,6 +36,10 @@ class TripTableViewCell: UITableViewCell {
         // might have to put date formatter in this class
         startDateLabel.text = dateFormatter.string(from: trip.startDate)
         endDateLabel.text = dateFormatter.string(from: trip.endDate)
+        
+        if let imageName = trip.imageFileName {
+            tripImageView.image = UIImage(named: imageName)
+        }
     }
     
     func initializeDateFormatter() {

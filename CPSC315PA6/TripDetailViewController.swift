@@ -17,6 +17,7 @@ class TripDetailViewController: UIViewController {
     @IBOutlet var destinationLabel: UILabel!
     @IBOutlet var startDateLabel: UILabel!
     @IBOutlet var endDateLabel: UILabel!
+    @IBOutlet var tripImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,10 @@ class TripDetailViewController: UIViewController {
             destinationLabel.text = "Destination: \(trip.destinationName)"
             startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate))"
             endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate))"
+            
+            if let imageName = trip.imageFileName {
+                tripImageView.image = UIImage(named: imageName)
+            }
         }
     }
     

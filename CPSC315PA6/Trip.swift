@@ -13,7 +13,7 @@ class Trip: CustomStringConvertible {
     var startDate = Date()
     var endDate = Date()
     
-    //var imageFileName: String?
+    var imageFileName: String?
     
     let dateFormatter = DateFormatter()
     
@@ -29,11 +29,17 @@ class Trip: CustomStringConvertible {
             """
     }
     
-    init(destinationName: String, startDate: Date, endDate: Date) {
+    init(destinationName: String, startDate: Date, endDate: Date, imageFileName: String?) {
         self.destinationName = destinationName
         self.startDate = startDate
         self.endDate = endDate
-        //self.imageFileName = "image"
+        if let imageName = imageFileName {
+            self.imageFileName = imageName
+        }
+        else {
+            self.imageFileName = nil
+        }
     }
+    
     
 }
