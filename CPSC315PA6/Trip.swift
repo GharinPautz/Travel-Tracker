@@ -25,7 +25,6 @@ class Trip: CustomStringConvertible {
     var destinationName: String
     var startDate = Date()
     var endDate = Date()
-    
     var imageFileName: String?
     
     let dateFormatter = DateFormatter()
