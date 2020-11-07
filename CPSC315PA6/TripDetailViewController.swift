@@ -11,6 +11,9 @@ import UIKit
 class TripDetailViewController: UIViewController {
 
     var tripOptional: Trip? = nil
+    var tripNumber: Int? = nil
+    var tripCount: Int? = nil
+    
     var dateFormatter = DateFormatter()
     
     @IBOutlet var tripCountLabel: UILabel!
@@ -24,16 +27,7 @@ class TripDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         initializeDateFormatter()
-        if let trip = tripOptional {
-            // set tripCountLabel
-            destinationLabel.text = "Destination: \(trip.destinationName)"
-            startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate))"
-            endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate))"
-            
-            if let imageName = trip.imageFileName {
-                tripImageView.image = UIImage(named: imageName)
-            }
-        }
+        displayTrip()
     }
     
 
@@ -46,6 +40,20 @@ class TripDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func displayTrip() {
+        if let trip = tripOptional {
+            // set tripCountLabel
+            tripCountLabel.text = "Trip \(tripNumber!) of \(tripCount!)"
+            destinationLabel.text = "Destination: \(trip.destinationName)"
+            startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate))"
+            endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate))"
+            
+            if let imageName = trip.imageFileName {
+                tripImageView.image = UIImage(named: imageName)
+            }
+        }
+    }
 
     func initializeDateFormatter() {
         dateFormatter.dateStyle = .short

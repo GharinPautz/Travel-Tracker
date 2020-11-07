@@ -185,12 +185,13 @@
                         <outlet property="destinationLabel" destination="G9a-DS-qAd" id="VmC-44-fu3"/>
                         <outlet property="endDateLabel" destination="VYB-R3-vmz" id="UcL-bg-gkz"/>
                         <outlet property="startDateLabel" destination="Nhx-1Y-iQL" id="Etf-MM-ADe"/>
+                        <outlet property="tripCountLabel" destination="1pu-Ig-hvw" id="LSb-u8-paS"/>
                         <outlet property="tripImageView" destination="fO0-Yd-BxB" id="VeI-pI-jLN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzz-5Y-eKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930.4000000000001" y="438.53073463268368"/>
+            <point key="canvasLocation" x="1931" y="468"/>
         </scene>
         <!--Add a New Trip-->
         <scene sceneID="Ncq-gR-jqn">
@@ -309,7 +310,7 @@
                         <outlet property="endDateTextField" destination="7ji-qL-YV2" id="ei7-wG-3I0"/>
                         <outlet property="saveButton" destination="dSw-Xq-a9a" id="VCJ-R6-YSw"/>
                         <outlet property="startDateTextField" destination="4jt-I7-fUy" id="7cA-lI-Dxe"/>
-                        <outlet property="tripNumberLabel" destination="lNR-31-0yt" id="UFu-wE-p1G"/>
+                        <outlet property="tripNumberLabel" destination="lNR-31-0yt" id="U1F-4w-K2T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IP8-vr-uC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

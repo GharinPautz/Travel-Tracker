@@ -11,6 +11,7 @@ import UIKit
 class AddTripViewController: UIViewController, UITextFieldDelegate {
 
     var tripOptional: Trip? = nil
+    var tripCount: Int = 0
     var dateFormatter = DateFormatter()
     
     @IBOutlet var tripNumberLabel: UILabel!
@@ -26,6 +27,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         initializeDateFormatter()
+        tripNumberLabel.text = "Trip #\(tripCount)"
     }
     
 
@@ -48,6 +50,24 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard let destinationStr = destinationTextField.text, destinationStr != "" else {
+            let alertController = UIAlertController(title: "Enter Destination", message: "You did not enter a destination.", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
+                print("Okay pressed in enter destination")
+                
+                
+            }))
+            
+            present(alertController, animated: true, completion: { () -> Void in
+                print("Alert just presented")
+            })
+            return false
+        }
+        return true
     }
     
     @IBAction func backgroundTap(_ sender: UITapGestureRecognizer) {

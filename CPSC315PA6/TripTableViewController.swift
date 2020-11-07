@@ -21,7 +21,7 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
         initializeDateFormatter()
         initializeTrips()
-        //print(trips)
+        print(trips)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,10 +60,18 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
                     if let indexPath = tableView.indexPathForSelectedRow {
                         let trip = trips[indexPath.row]
                         tripDetailVC.tripOptional = trip
+                        tripDetailVC.tripCount = trips.count
+                        tripDetailVC.tripNumber = indexPath.row
                     }
                 }
             }
-            else if identifier == "AddSegue" {
+            else if identifier == "AddTripSegue" {
+                print("made it to add segue")
+                if let addTripVC = segue.destination as? AddTripViewController {
+                    print("tripCount: \(trips.count + 1)")
+                    addTripVC.tripCount = trips.count + 1
+                    
+                }
                 if let indexPath = tableView.indexPathForSelectedRow {
                     // deselect the row
                     tableView.deselectRow(at: indexPath, animated: true)
