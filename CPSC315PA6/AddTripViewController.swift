@@ -40,7 +40,10 @@ class AddTripViewController: UIViewController {
             if identifier == "SaveUnwindSegue" {
                 print("In save unwind segue")
                 if let destination = destinationTextField.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
-                    
+                        
+                        // check that destination is not empty
+                        // check that start date is valid date
+                        // check that end date is valid date
                         tripOptional = Trip(destinationName: destination, startDate: dateFormatter.date(from: startDate)!, endDate: dateFormatter.date(from: endDate)!)
                 }
             }

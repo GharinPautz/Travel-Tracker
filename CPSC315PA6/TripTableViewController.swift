@@ -41,6 +41,18 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let trip = trips.remove(at: sourceIndexPath.row)
+        trips.insert(trip, at: destinationIndexPath.row)
+        
+        tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        trips.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .top)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "DetailSegue" {
@@ -78,12 +90,35 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
+    /**
+     Toggle the editing mode for Trip Table View Controller
+     
+     - Parameters: sender is the UIBarButtonItem that the user presses titled "edit"
+     - Returns: None
+     */
+    @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+        let newEditingMode = !tableView.isEditing
+        tableView.setEditing(newEditingMode, animated: true)
+    }
+    
+    /**
+     Initializes original 5 trips to populate the app
+     
+     - Parameters: None
+     - Returns: None
+     */
     func initializeTrips() {
         trips.append(Trip(destinationName: "Hawaii", startDate: dateFormatter.date(from: "12/23/2020")!, endDate: dateFormatter.date(from: "12/30/2020")!))
         trips.append(Trip(destinationName: "Copenhagen", startDate: dateFormatter.date(from: "08/05/2020")!, endDate: dateFormatter.date(from: "08/22/2020")!))
         trips.append(Trip(destinationName: "Florence", startDate: dateFormatter.date(from: "09/13/2020")!, endDate: dateFormatter.date(from: "09/25/2020")!))
     }
 
+    /**
+    Initializes date formatter settings
+    
+    - Parameters: None
+    - Returns: None
+    */
     func initializeDateFormatter() {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
