@@ -1,6 +1,10 @@
 //
 //  ViewController.swift
 //  CPSC315PA6
+//  This program stores information about the user's trips in a table view.
+//  CPSC 315-02, Fall 2020
+//  Programming Assignment #6
+//  No sources to cite
 //
 //  Created by Gharin Pautz on 10/26/20.
 //  Copyright © 2020 Gharin Pautz. All rights reserved.
@@ -8,6 +12,15 @@
 
 import UIKit
 
+/**
+ View controller for the initial screen of the app that stores the table view
+ 
+ - Parameters:
+    - trips: an array of Trip objects
+    - tableView: the table view object
+    - dateFormatter: the DateFormatter object being used to format dates
+ - Returns: None
+ */
 class TripTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var trips = [Trip]()
@@ -24,6 +37,14 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         print(trips)
     }
     
+    /**
+    Method for UITableViewDelegate protocol
+    
+    - Parameters:
+        - tableView: the table view object
+        - numberOfRowsInSection: the number of rows
+    - Returns: An integer representing the number of cells in table
+    */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return trips.count
@@ -31,6 +52,14 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         return 0
     }
     
+    /**
+     Method for UITableViewDelegate protocol
+     
+     - Parameters:
+        - tableView: the table view object
+        - indexPath: the selected row
+     - Returns: A  cell in the table
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
         let trip = trips[row]
@@ -41,6 +70,15 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    /**
+     The method for moving a row from one position to another
+     
+     - Parameters:
+        - tableView: the table view object
+        - sourceIndexPath: the initial row position
+        - destinationIndexPath: the new row position
+     - Returns: None
+     */
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let trip = trips.remove(at: sourceIndexPath.row)
         trips.insert(trip, at: destinationIndexPath.row)
@@ -48,11 +86,28 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.reloadData()
     }
     
+    /**
+     The tableview method for removing a row in the table when deleted
+     
+     - Parameters:
+        - tableView: The tableView object
+        - editingStyle: the editing style
+        - indexPath: The row in the table
+     - Returns: None
+     */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         trips.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .top)
     }
     
+    /**
+     Function to prepare for a segue to either of the next 2 screens
+     
+     - Parameters:
+        - segue: The segue about to be performed
+        - sender: the sender
+     - Returns: None
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "DetailSegue" {

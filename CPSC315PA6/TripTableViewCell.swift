@@ -1,6 +1,10 @@
 //
 //  TripTableViewCell.swift
 //  CPSC315PA6
+//  This program stores information about the user's trips in a table view.
+//  CPSC 315-02, Fall 2020
+//  Programming Assignment #6
+//  No sources to cite
 //
 //  Created by Gharin Pautz on 11/4/20.
 //  Copyright © 2020 Gharin Pautz. All rights reserved.
@@ -8,6 +12,16 @@
 
 import UIKit
 
+/**
+ The class that is in charge of the cells within the Trip table.
+ 
+ - Parameters:
+    - destinationLabel: the label where the destination is stored
+    - startDateLabel: the label where the start date is stored
+    - endDateLabel: the label where the end date is stored
+    - tripImageView: the image that is to be displayed
+ - Returns: None
+ */
 class TripTableViewCell: UITableViewCell {
 
     @IBOutlet var destionationLabel: UILabel!
@@ -28,6 +42,12 @@ class TripTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    /**
+     Update method to change load the text fields
+     
+     - Parameters: trip is the Trip object
+     - Returns: None
+     */
     func update(with trip: Trip) {
         initializeDateFormatter()
         destionationLabel.text = trip.destinationName
@@ -42,6 +62,12 @@ class TripTableViewCell: UITableViewCell {
         }
     }
     
+    /**
+    Initializes date formatter settings
+    
+    - Parameters: None
+    - Returns: None
+    */
     func initializeDateFormatter() {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none

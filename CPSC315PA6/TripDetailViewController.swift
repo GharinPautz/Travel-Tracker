@@ -1,6 +1,10 @@
 //
 //  TripDetailViewController.swift
 //  CPSC315PA6
+//  This program stores information about the user's trips in a table view.
+//  CPSC 315-02, Fall 2020
+//  Programming Assignment #6
+//  No sources to cite
 //
 //  Created by Gharin Pautz on 11/4/20.
 //  Copyright © 2020 Gharin Pautz. All rights reserved.
@@ -8,6 +12,15 @@
 
 import UIKit
 
+/**
+ The view controller for the screen that displays details of trips
+ 
+ - Parameters:
+    - tripOptional: the trip object that is being worked with
+    - tripNumber: the currently selected trip within the table
+    - tripCount: the total count of trips
+ - Returns: None
+ */
 class TripDetailViewController: UIViewController {
 
     var tripOptional: Trip? = nil
@@ -40,7 +53,6 @@ class TripDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
     func displayTrip() {
         if let trip = tripOptional {
             // set tripCountLabel
@@ -55,6 +67,12 @@ class TripDetailViewController: UIViewController {
         }
     }
 
+    /**
+    Initializes date formatter settings
+    
+    - Parameters: None
+    - Returns: None
+    */
     func initializeDateFormatter() {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none

@@ -1,6 +1,10 @@
 //
 //  AddTripViewController.swift
 //  CPSC315PA6
+//  This program stores information about the user's trips in a table view.
+//  CPSC 315-02, Fall 2020
+//  Programming Assignment #6
+//  No sources to cite
 //
 //  Created by Gharin Pautz on 11/6/20.
 //  Copyright © 2020 Gharin Pautz. All rights reserved.
@@ -8,6 +12,15 @@
 
 import UIKit
 
+/**
+ This class is the view controller for the screen where the user can add new trips.
+ 
+ - Parameters:
+    - tripOptional: The trip object where data is stored when grabbed from textfields
+    - tripCount: the total count of trips
+    - dateFormatter: The DateFormatter object used to format the dates
+ - Returns: None
+ */
 class AddTripViewController: UIViewController, UITextFieldDelegate {
 
     var tripOptional: Trip? = nil
@@ -34,6 +47,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /**
+     Stores data in the text fields to a new Trip object to be added to the trips array
+     
+     - Parameters:
+        - segue: The segue that is about to be performed
+        - sender:
+     - Returns: None
+     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
@@ -52,6 +73,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    /**
+     Function that determines whether a segue should perform
+     
+     - Parameters:
+        - identifier
+        - sender
+     - Returns: True if segue should perform, false otherwise
+     */
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard let destinationStr = destinationTextField.text, destinationStr != "" else {
             let alertController = UIAlertController(title: "Enter Destination", message: "You did not enter a destination.", preferredStyle: .alert)
@@ -103,6 +132,12 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    /**
+     Allows keyboard to resign as first responder (disappear) when background is tapped
+     
+     - Parameters: sender is the background tap
+     - Returns: None
+     */
     @IBAction func backgroundTap(_ sender: UITapGestureRecognizer) {
         print("background tap")
         destinationTextField.resignFirstResponder()
@@ -110,13 +145,23 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
         endDateTextField.resignFirstResponder()
     }
     
+    /**
+     Allows keyboard to disappear when return key is pressed.
+     
+     - Parameters: textField is the textField that is being used
+     - Returns: true if return is tapped
+     */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        destinationTextField.resignFirstResponder()
-        startDateTextField.resignFirstResponder()
-        endDateTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     
+    /**
+    Initializes date formatter settings
+    
+    - Parameters: None
+    - Returns: None
+    */
     func initializeDateFormatter() {
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
