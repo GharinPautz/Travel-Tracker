@@ -116,7 +116,7 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
                         let trip = trips[indexPath.row]
                         tripDetailVC.tripOptional = trip
                         tripDetailVC.tripCount = trips.count
-                        tripDetailVC.tripNumber = indexPath.row
+                        tripDetailVC.tripNumber = indexPath.row + 1
                     }
                 }
             }
@@ -174,6 +174,8 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         trips.append(Trip(destinationName: "Hawaii", startDate: dateFormatter.date(from: "12/23/2020")!, endDate: dateFormatter.date(from: "12/30/2020")!, imageFileName: "hawaii"))
         trips.append(Trip(destinationName: "Copenhagen", startDate: dateFormatter.date(from: "08/05/2020")!, endDate: dateFormatter.date(from: "08/22/2020")!, imageFileName: "copenhagen"))
         trips.append(Trip(destinationName: "Florence", startDate: dateFormatter.date(from: "09/13/2020")!, endDate: dateFormatter.date(from: "09/25/2020")!, imageFileName: "florence"))
+        trips.append(Trip(destinationName: "Kat\'s House", startDate: dateFormatter.date(from: "04/22/2020")!, endDate: dateFormatter.date(from: "02/25/2020")!, imageFileName: nil))
+        trips.append(Trip(destinationName: "Georgia", startDate: dateFormatter.date(from: "02/14/2020")!, endDate: dateFormatter.date(from: "03/23/2020")!, imageFileName: nil))
     }
 
     /**

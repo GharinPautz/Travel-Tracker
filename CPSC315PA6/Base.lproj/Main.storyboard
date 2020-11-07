@@ -128,65 +128,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hkq-pr-5oM">
-                                <rect key="frame" x="16" y="74" width="288" height="478"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip 1 of 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TED-iu-vh0">
+                                <rect key="frame" x="122.5" y="59" width="75.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VCI-Ao-sEj">
+                                <rect key="frame" x="15" y="187" width="290" height="366"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d0y-dy-oul">
+                                <rect key="frame" x="15" y="94.5" width="290" height="77.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip 1 of 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pu-Ig-hvw">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="23.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination: Hawaii" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN1-Wy-uWE">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GFE-3H-iav">
-                                        <rect key="frame" x="0.0" y="43.5" width="175.5" height="88.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination: Hawaii" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9a-DS-qAd">
-                                                <rect key="frame" x="0.0" y="0.0" width="146" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date: 12/23/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhx-1Y-iQL">
-                                                <rect key="frame" x="0.0" y="34" width="175.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date: 12/30/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYB-R3-vmz">
-                                                <rect key="frame" x="0.0" y="68" width="168" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fO0-Yd-BxB">
-                                        <rect key="frame" x="0.0" y="152" width="288" height="326"/>
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date: 12/23/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sg9-Yn-Py1">
+                                        <rect key="frame" x="0.0" y="28.5" width="175.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date: 12/30/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFS-zH-cWM">
+                                        <rect key="frame" x="0.0" y="57" width="168" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="fO0-Yd-BxB" firstAttribute="centerX" secondItem="Hkq-pr-5oM" secondAttribute="centerX" id="2FN-7I-6HH"/>
-                                    <constraint firstItem="1pu-Ig-hvw" firstAttribute="centerX" secondItem="Hkq-pr-5oM" secondAttribute="centerX" id="J5X-jF-x6x"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="KJD-CW-2VJ" firstAttribute="trailing" secondItem="Hkq-pr-5oM" secondAttribute="trailing" constant="16" id="3B3-33-ecW"/>
-                            <constraint firstItem="Hkq-pr-5oM" firstAttribute="top" secondItem="KJD-CW-2VJ" secondAttribute="top" constant="30" id="ZKv-Fb-mh4"/>
-                            <constraint firstItem="KJD-CW-2VJ" firstAttribute="bottom" secondItem="Hkq-pr-5oM" secondAttribute="bottom" constant="16" id="t4d-Sr-IwM"/>
-                            <constraint firstItem="Hkq-pr-5oM" firstAttribute="leading" secondItem="KJD-CW-2VJ" secondAttribute="leading" constant="16" id="tc7-JD-aHU"/>
+                            <constraint firstItem="KJD-CW-2VJ" firstAttribute="trailing" secondItem="d0y-dy-oul" secondAttribute="trailing" constant="15" id="5B2-YD-U7S"/>
+                            <constraint firstItem="TED-iu-vh0" firstAttribute="top" secondItem="KJD-CW-2VJ" secondAttribute="top" constant="15" id="Auq-8o-WfL"/>
+                            <constraint firstItem="TED-iu-vh0" firstAttribute="centerX" secondItem="Dn9-Kz-MjT" secondAttribute="centerX" id="IKi-Ss-KDf"/>
+                            <constraint firstItem="d0y-dy-oul" firstAttribute="leading" secondItem="KJD-CW-2VJ" secondAttribute="leading" constant="15" id="NeX-tI-nfg"/>
+                            <constraint firstItem="KJD-CW-2VJ" firstAttribute="trailing" secondItem="VCI-Ao-sEj" secondAttribute="trailing" constant="15" id="RSy-En-hhe"/>
+                            <constraint firstItem="VCI-Ao-sEj" firstAttribute="top" secondItem="d0y-dy-oul" secondAttribute="bottom" constant="15" id="VEq-pk-InR"/>
+                            <constraint firstItem="KJD-CW-2VJ" firstAttribute="bottom" secondItem="VCI-Ao-sEj" secondAttribute="bottom" constant="15" id="bnI-mK-FVu"/>
+                            <constraint firstItem="VCI-Ao-sEj" firstAttribute="leading" secondItem="KJD-CW-2VJ" secondAttribute="leading" constant="15" id="dHa-8M-LQf"/>
+                            <constraint firstItem="d0y-dy-oul" firstAttribute="top" secondItem="TED-iu-vh0" secondAttribute="bottom" constant="15" id="lpN-oL-4bu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJD-CW-2VJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trip Details" id="72g-IS-fR4"/>
                     <connections>
-                        <outlet property="destinationLabel" destination="G9a-DS-qAd" id="VmC-44-fu3"/>
-                        <outlet property="endDateLabel" destination="VYB-R3-vmz" id="UcL-bg-gkz"/>
-                        <outlet property="startDateLabel" destination="Nhx-1Y-iQL" id="Etf-MM-ADe"/>
-                        <outlet property="tripCountLabel" destination="1pu-Ig-hvw" id="LSb-u8-paS"/>
-                        <outlet property="tripImageView" destination="fO0-Yd-BxB" id="VeI-pI-jLN"/>
+                        <outlet property="destinationLabel" destination="GN1-Wy-uWE" id="Au5-hA-IS4"/>
+                        <outlet property="endDateLabel" destination="sFS-zH-cWM" id="If4-cw-B7e"/>
+                        <outlet property="startDateLabel" destination="Sg9-Yn-Py1" id="6yp-6t-2cK"/>
+                        <outlet property="tripCountLabel" destination="TED-iu-vh0" id="Ent-my-Xgn"/>
+                        <outlet property="tripImageView" destination="VCI-Ao-sEj" id="KVv-8f-zRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzz-5Y-eKl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
