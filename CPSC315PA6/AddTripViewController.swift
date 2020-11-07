@@ -82,51 +82,54 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
      - Returns: True if segue should perform, false otherwise
      */
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard let destinationStr = destinationTextField.text, destinationStr != "" else {
-            let alertController = UIAlertController(title: "Enter Destination", message: "You did not enter a destination.", preferredStyle: .alert)
-            
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
-                print("Okay pressed in enter destination")
-                
-                
-            }))
-            
-            present(alertController, animated: true, completion: { () -> Void in
-                print("Alert just presented")
-            })
-            return false
-        }
         
-        guard let startDateStr = dateFormatter.date(from: startDateTextField.text!) else {
+        if identifier == "SaveUnwindSegue" {
+            guard let destinationStr = destinationTextField.text, destinationStr != "" else {
+                let alertController = UIAlertController(title: "Enter Destination", message: "You did not enter a destination.", preferredStyle: .alert)
+                
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
+                    print("Okay pressed in enter destination")
+                    
+                    
+                }))
+                
+                present(alertController, animated: true, completion: { () -> Void in
+                    print("Alert just presented")
+                })
+                return false
+            }
             
-            let alertController = UIAlertController(title: "Incorrect Date Format", message: "The date you entered is not the correct format.", preferredStyle: .alert)
+            guard let startDateStr = dateFormatter.date(from: startDateTextField.text!) else {
+                
+                let alertController = UIAlertController(title: "Incorrect Date Format", message: "The date you entered is not the correct format.", preferredStyle: .alert)
+                
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
+                    print("Okay pressed from date dialog")
+                    self.startDateTextField.text = ""
+                }))
+                
+                present(alertController, animated: true, completion: { () -> Void in
+                    print("Alert just presented")
+                })
+                
+                return false
+            }
             
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
-                print("Okay pressed from date dialog")
-                self.startDateTextField.text = ""
-            }))
-            
-            present(alertController, animated: true, completion: { () -> Void in
-                print("Alert just presented")
-            })
-            
-            return false
-        }
-        
-        guard let endDateStr = dateFormatter.date(from: endDateTextField.text!) else {
-            
-            let alertController = UIAlertController(title: "Incorrect Date Format", message: "The date you entered is not the correct format.", preferredStyle: .alert)
-            
-            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
-                print("Okay pressed from date dialog")
-                self.endDateTextField.text = ""
-            }))
-            
-            present(alertController, animated: true, completion: { () -> Void in
-                print("Alert just presented")
-            })
-            
-            return false
+            guard let endDateStr = dateFormatter.date(from: endDateTextField.text!) else {
+                
+                let alertController = UIAlertController(title: "Incorrect Date Format", message: "The date you entered is not the correct format.", preferredStyle: .alert)
+                
+                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) -> Void in
+                    print("Okay pressed from date dialog")
+                    self.endDateTextField.text = ""
+                }))
+                
+                present(alertController, animated: true, completion: { () -> Void in
+                    print("Alert just presented")
+                })
+                
+                return false
+            }
         }
         
         return true
