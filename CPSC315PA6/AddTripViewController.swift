@@ -33,6 +33,7 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
     @IBOutlet var destinationTextField: UITextField!
     @IBOutlet var startDateTextField: UITextField!
     @IBOutlet var endDateTextField: UITextField!
+    @IBOutlet var addTripImageView: UIImageView!
     
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var saveButton: UIButton!
@@ -76,8 +77,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
             return
         }
         
-        // if we add UIImageView to AddTripViewController storyboard
-        // imageView.image = selectedImage
+        // sets image in addTripViewController to selected image
+        addTripImageView.image = selectedImage
         dismiss(animated: true, completion: nil)
     }
 
