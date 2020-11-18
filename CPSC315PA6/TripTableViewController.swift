@@ -37,6 +37,9 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
         initializeDateFormatter()
 //        initializeTrips()
+        
+        // load in trips from CoreData
+        loadTrips()
         print(trips)
     }
     
@@ -99,8 +102,16 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
      - Returns: None
      */
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        trips.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .top)
+        if editingStyle == .delete {
+            // remove trip in CoreData
+            context.delete(trips[indexPath.row])
+            // remove trip from array
+            trips.remove(at: indexPath.row)
+            // remove trip from table view
+            tableView.deleteRows(at: [indexPath], with: .left)
+            
+            saveTrips()
+        }
     }
     
     /**
@@ -193,6 +204,12 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         dateFormatter.dateFormat = "MM/dd/yyyy"
     }
     
+    /**
+     The function that cerates an instance of Trip entity in our CoreData Database
+     
+     - Parameters: None
+     - Returns: None
+     */
     func saveTrips() {
         // save the context to disk
         do {
@@ -200,6 +217,23 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
         catch {
             print("Error saving trips \(error)")
+        }
+        tableView.reloadData()
+    }
+    
+    /**
+    The function reads from our CoreData Database and loads in the Trip data.
+    
+    - Parameters: None
+    - Returns: None
+    */
+    func loadTrips() {
+        let request: NSFetchRequest<Trip> = Trip.fetchRequest()
+        do {
+            trips = try context.fetch(request)
+        }
+        catch {
+            print("Error when reading in Trips \(error)")
         }
         tableView.reloadData()
     }

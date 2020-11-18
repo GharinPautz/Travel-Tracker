@@ -65,14 +65,13 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
             if identifier == "SaveUnwindSegue" {
                 print("In save unwind segue")
                 if let destination = destinationTextField.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
-                        
-                        // check that destination is not empty
-                        // check that start date is valid date
-                        // check that end date is valid date
+
+                    // CREATE
                     tripOptional = Trip(context: self.context)
                     tripOptional?.destinationName = destination
                     tripOptional?.startDate = dateFormatter.date(from: startDate)!
                     tripOptional?.endDate = dateFormatter.date(from: endDate)!
+                    
                     // MARK: - TODO
                     // update imageFileName with camera stuff
                     tripOptional?.imageFileName = nil
