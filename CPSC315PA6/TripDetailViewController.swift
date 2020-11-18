@@ -29,6 +29,7 @@ class TripDetailViewController: UIViewController {
     
     var dateFormatter = DateFormatter()
     
+    
     @IBOutlet var tripCountLabel: UILabel!
     @IBOutlet var destinationLabel: UILabel!
     @IBOutlet var startDateLabel: UILabel!
@@ -78,4 +79,5 @@ class TripDetailViewController: UIViewController {
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MM/dd/yyyy"
     }
+    
 }

@@ -148,7 +148,7 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
                     if let trip = addTripVC.tripOptional {
                         // unwinding from add segue
                         trips.append(trip)
-                        tableView.reloadData()
+                        self.saveTrips()
                     }
                 }
             }
@@ -191,6 +191,17 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MM/dd/yyyy"
+    }
+    
+    func saveTrips() {
+        // save the context to disk
+        do {
+            try context.save()
+        }
+        catch {
+            print("Error saving trips \(error)")
+        }
+        tableView.reloadData()
     }
 }
 
