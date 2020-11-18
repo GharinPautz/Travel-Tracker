@@ -21,7 +21,7 @@ import UIKit
     - dateFormatter: The DateFormatter object used to format the dates
  - Returns: None
  */
-class AddTripViewController: UIViewController, UITextFieldDelegate {
+class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var tripOptional: Trip? = nil
     var tripCount: Int = 0
@@ -45,6 +45,41 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
         tripNumberLabel.text = "Trip #\(tripCount)"
     }
     
+    @IBAction func photosButtonPressed(_ sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(cameraAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in imagePicker.sourceType = .photoLibrary
+                self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(photoLibraryAction)
+        }
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            return
+        }
+        
+        // if we add UIImageView to AddTripViewController storyboard
+        // imageView.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
 
     // MARK: - Navigation
 
@@ -178,4 +213,5 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "MM/dd/yyyy"
     }
+    
 }

@@ -296,7 +296,13 @@
                             <outletCollection property="gestureRecognizers" destination="ShI-vp-Qg3" appends="YES" id="hHx-HB-msk"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Add a New Trip" id="kpb-NX-Lxd"/>
+                    <navigationItem key="navigationItem" title="Add a New Trip" id="kpb-NX-Lxd">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="camera" catalog="system" id="UdA-6e-I6Z">
+                            <connections>
+                                <action selector="photosButtonPressed:" destination="Ta1-Pa-vqM" id="dZy-C3-xkZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cancelButton" destination="L5m-4d-R6b" id="mfD-cr-vyv"/>
                         <outlet property="destinationTextField" destination="91V-AV-ixS" id="YoG-Ss-o8R"/>
@@ -336,6 +342,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" catalog="system" width="64" height="48"/>
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>
