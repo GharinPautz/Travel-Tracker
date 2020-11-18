@@ -21,7 +21,7 @@ import Foundation
     - endDate: The end date of the user's trip
  - Returns:
  */
-class Trip: CustomStringConvertible {
+class Journey: CustomStringConvertible {
     var destinationName: String
     var startDate = Date()
     var endDate = Date()

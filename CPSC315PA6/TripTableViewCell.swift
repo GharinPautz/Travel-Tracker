@@ -54,8 +54,8 @@ class TripTableViewCell: UITableViewCell {
 
         // Figure out how to make these strings
         // might have to put date formatter in this class
-        startDateLabel.text = dateFormatter.string(from: trip.startDate)
-        endDateLabel.text = dateFormatter.string(from: trip.endDate)
+        startDateLabel.text = dateFormatter.string(from: trip.startDate!)
+        endDateLabel.text = dateFormatter.string(from: trip.endDate!)
         
         if let imageName = trip.imageFileName {
             tripImageView.image = UIImage(named: imageName)

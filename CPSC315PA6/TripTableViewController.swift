@@ -11,6 +11,7 @@
 //
 
 import UIKit
+import CoreData
 
 /**
  View controller for the initial screen of the app that stores the table view
@@ -23,7 +24,9 @@ import UIKit
  */
 class TripTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //var trips = [Journey]()
     var trips = [Trip]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet var tableView: UITableView!
     
@@ -33,7 +36,7 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         initializeDateFormatter()
-        initializeTrips()
+//        initializeTrips()
         print(trips)
     }
     
@@ -170,13 +173,13 @@ class TripTableViewController: UIViewController, UITableViewDataSource, UITableV
      - Parameters: None
      - Returns: None
      */
-    func initializeTrips() {
-        trips.append(Trip(destinationName: "Kat\'s House", startDate: dateFormatter.date(from: "04/22/2020")!, endDate: dateFormatter.date(from: "02/25/2020")!, imageFileName: nil))
-        trips.append(Trip(destinationName: "Hawaii", startDate: dateFormatter.date(from: "12/23/2020")!, endDate: dateFormatter.date(from: "12/30/2020")!, imageFileName: "hawaii"))
-        trips.append(Trip(destinationName: "Copenhagen", startDate: dateFormatter.date(from: "08/05/2020")!, endDate: dateFormatter.date(from: "08/22/2020")!, imageFileName: "copenhagen"))
-        trips.append(Trip(destinationName: "Florence", startDate: dateFormatter.date(from: "09/13/2020")!, endDate: dateFormatter.date(from: "09/25/2020")!, imageFileName: "florence"))
-        trips.append(Trip(destinationName: "Georgia", startDate: dateFormatter.date(from: "02/14/2020")!, endDate: dateFormatter.date(from: "03/23/2020")!, imageFileName: nil))
-    }
+//    func initializeTrips() {
+//        trips.append(Journey(destinationName: "Kat\'s House", startDate: dateFormatter.date(from: "04/22/2020")!, endDate: dateFormatter.date(from: "02/25/2020")!, imageFileName: nil))
+//        trips.append(Journey(destinationName: "Hawaii", startDate: dateFormatter.date(from: "12/23/2020")!, endDate: dateFormatter.date(from: "12/30/2020")!, imageFileName: "hawaii"))
+//        trips.append(Journey(destinationName: "Copenhagen", startDate: dateFormatter.date(from: "08/05/2020")!, endDate: dateFormatter.date(from: "08/22/2020")!, imageFileName: "copenhagen"))
+//        trips.append(Journey(destinationName: "Florence", startDate: dateFormatter.date(from: "09/13/2020")!, endDate: dateFormatter.date(from: "09/25/2020")!, imageFileName: "florence"))
+//        trips.append(Journey(destinationName: "Georgia", startDate: dateFormatter.date(from: "02/14/2020")!, endDate: dateFormatter.date(from: "03/23/2020")!, imageFileName: nil))
+//    }
 
     /**
     Initializes date formatter settings

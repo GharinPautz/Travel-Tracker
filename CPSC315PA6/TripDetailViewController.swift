@@ -58,8 +58,8 @@ class TripDetailViewController: UIViewController {
             // set tripCountLabel
             tripCountLabel.text = "Trip \(tripNumber!) of \(tripCount!)"
             destinationLabel.text = "Destination: \(trip.destinationName)"
-            startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate))"
-            endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate))"
+            startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate!))"
+            endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate!))"
             
             if let imageName = trip.imageFileName {
                 tripImageView.image = UIImage(named: imageName)

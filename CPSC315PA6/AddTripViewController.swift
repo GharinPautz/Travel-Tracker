@@ -27,6 +27,8 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
     var tripCount: Int = 0
     var dateFormatter = DateFormatter()
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet var tripNumberLabel: UILabel!
     @IBOutlet var destinationTextField: UITextField!
     @IBOutlet var startDateTextField: UITextField!
@@ -67,7 +69,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate {
                         // check that destination is not empty
                         // check that start date is valid date
                         // check that end date is valid date
-                    tripOptional = Trip(destinationName: destination, startDate: dateFormatter.date(from: startDate)!, endDate: dateFormatter.date(from: endDate)!, imageFileName: nil)
+                    tripOptional = Trip(context: self.context)
+                    tripOptional?.destinationName = destination
+                    tripOptional?.startDate = dateFormatter.date(from: startDate)!
+                    tripOptional?.endDate = dateFormatter.date(from: endDate)!
+                    // MARK: - TODO
+                    // update imageFileName with camera stuff
+                    tripOptional?.imageFileName = nil
+                    
                 }
             }
         }
