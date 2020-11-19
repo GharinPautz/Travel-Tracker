@@ -111,7 +111,6 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     tripOptional?.startDate = dateFormatter.date(from: startDate)!
                     tripOptional?.endDate = dateFormatter.date(from: endDate)!
                     
-                    // MARK: - TODO
                     // update imageFileName with camera stuff
                     // create the filename for the image
                     tripOptional?.imageFileName = writeImage() // instead of nil... imageName
