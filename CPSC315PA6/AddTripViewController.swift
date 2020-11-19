@@ -1,7 +1,8 @@
 //
 //  AddTripViewController.swift
-//  CPSC315PA6
-//  This program stores information about the user's trips in a table view.
+//  CPSC315PA7
+//  This program stores information about the user's trips in a table view and
+//  utilizes CoreData database to have data persist across multiple runtimes.
 //  CPSC 315-02, Fall 2020
 //  Programming Assignment #6
 //  No sources to cite
@@ -72,6 +73,14 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         present(alertController, animated: true, completion: nil)
     }
     
+    /**
+     Selects image and sets UIImageView to selected image
+     
+     - Parameters:
+        - picker: The controller object managing the image picker interface.
+        - info: Dictionary containing original image
+     - Returns: None
+     */
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else {
             return
@@ -120,6 +129,12 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         }
     }
     
+    /**
+     Sets image's name with random identifier and writes image data to CoreData databse
+     
+     - Parameters: None
+     - Returns: A string representation of the unique identifier given to the image added
+     */
     func writeImage() -> String {
         let fileName = "\(UUID().uuidString)" // deleted .jpg
         

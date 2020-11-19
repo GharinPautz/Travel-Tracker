@@ -1,6 +1,6 @@
 //
 //  Trip+CoreDataClass.swift
-//  CPSC315PA6
+//  CPSC315PA7
 //
 //  Created by Gharin Pautz on 11/17/20.
 //  Copyright © 2020 Gharin Pautz. All rights reserved.

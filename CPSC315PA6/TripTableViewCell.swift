@@ -1,7 +1,8 @@
 //
 //  TripTableViewCell.swift
-//  CPSC315PA6
-//  This program stores information about the user's trips in a table view.
+//  CPSC315PA7
+//  This program stores information about the user's trips in a table view and
+//  utilizes CoreData database to have data persist across multiple runtimes.
 //  CPSC 315-02, Fall 2020
 //  Programming Assignment #6
 //  No sources to cite

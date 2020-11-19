@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CPSC315PA6
+//  CPSC315PA7
 //
 //  Created by Gharin Pautz on 10/26/20.
 //  Copyright © 2020 Gharin Pautz. All rights reserved.
