@@ -100,8 +100,11 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
         if let identifier = segue.identifier {
             if identifier == "SaveUnwindSegue" {
                 print("In save unwind segue")
+                
+                // need to add "let imageName = image addTripImageView.image...?
                 if let destination = destinationTextField.text, let startDate = startDateTextField.text, let endDate = endDateTextField.text {
 
+                    
                     // CREATE
                     tripOptional = Trip(context: self.context)
                     tripOptional?.destinationName = destination
@@ -110,11 +113,32 @@ class AddTripViewController: UIViewController, UITextFieldDelegate, UIImagePicke
                     
                     // MARK: - TODO
                     // update imageFileName with camera stuff
-                    tripOptional?.imageFileName = nil
-                    
+                    // create the filename for the image
+                    tripOptional?.imageFileName = writeImage() // instead of nil... imageName
+                    // need to call writeImage()
                 }
             }
         }
+    }
+    
+    func writeImage() -> String {
+        let fileName = "\(UUID().uuidString)" // deleted .jpg
+        
+        let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        // userDomainMask refers to the user's home directory
+        let fileURL = documentsDirectoryURL.appendingPathComponent(fileName).appendingPathExtension("jpeg")
+        
+        if let imageData = addTripImageView.image?.jpegData(compressionQuality: 1.0) {
+            do {
+                try imageData.write(to: fileURL)
+                print(fileURL)
+            }
+            catch {
+                print("error when writing image to url \(error)")
+            }
+        }
+        
+        return fileName
     }
     
     /**

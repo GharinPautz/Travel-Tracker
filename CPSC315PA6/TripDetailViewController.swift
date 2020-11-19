@@ -58,7 +58,7 @@ class TripDetailViewController: UIViewController {
         if let trip = tripOptional {
             // set tripCountLabel
             tripCountLabel.text = "Trip \(tripNumber!) of \(tripCount!)"
-            destinationLabel.text = "Destination: \(trip.destinationName)"
+            destinationLabel.text = "Destination: \(trip.destinationName!)"
             startDateLabel.text = "Start Date: \(dateFormatter.string(from: trip.startDate!))"
             endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate!))"
             
