@@ -63,7 +63,15 @@ class TripDetailViewController: UIViewController {
             endDateLabel.text = "End Date: \(dateFormatter.string(from: trip.endDate!))"
             
             if let imageName = trip.imageFileName {
-                tripImageView.image = UIImage(named: imageName)
+                let documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                // userDomainMask refers to the user's home directory
+                let fileURL = documentsDirectoryURL.appendingPathComponent(imageName).appendingPathExtension("jpeg")
+                           
+                let imageFromDisk = UIImage(contentsOfFile: fileURL.path)
+                           
+                if imageFromDisk != nil {
+                    tripImageView.image = imageFromDisk
+                }
             }
         }
     }
